@@ -1,0 +1,26 @@
+
+server:
+  port: 8009
+  cloud:
+    gateway:
+      routes:
+        - id: SECURITY-SERVICE
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/**
+        - id: COUPON-SERVICE
+          uri: lb://COUPON-SERVICE
+          predicates:
+            - Path=/coupons/**
+        - id: FLIPKARTCOUPON-SERVICE
+          uri: lb://FLIPKARTCOUPON-SERVICE
+          predicates:
+            - Path=/coupons/**
+        - id: MYNTRACOUPON-SERVICE
+          uri: lb://MYNTRACOUPON-SERVICE
+          predicates:
+            - Path=/coupons/**
+        - id: ADMIN-SERVICE
+          uri: lb://ADMIN-SERVICE
+          predicates:
+            - Path=/admin/**
